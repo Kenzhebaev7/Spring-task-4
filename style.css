@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    display: flex;
+    padding: 20px;
+    background-color: #2C8391;
+}
+
+.header-logo{
+    width: 15%;
+}
+
+.header-links{
+    display: flex;
+    width: 85%;
+    justify-content: flex-end;
+}
+
+.header-logo b{
+    color: #fff;
+}
+
+.header-links a{
+    text-decoration: none;
+    color: #C9C9C9;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+form{
+    margin-top: 50px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input, select{
+    padding: 7px;
+    border: 1px solid #DBDBDB;
+    outline: none;
+}
+
+button{
+    padding: 10px;
+    width: 90px;
+    border: none;
+    cursor: pointer;
+    background-color: #00008B;
+    color: white;
+}

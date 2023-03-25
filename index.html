@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+
+    <style>
+        .main{
+            display: flex;
+            justify-content: center;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <b>TWITTER</b>
+        </div>
+        
+        <div class="header-links">
+            <a href="#">Tweets</a>
+            <a href="login.html" id="profile"></a>
+            <a href="#" id="logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="main">
+        <div>
+            <div>
+                <div>
+                    <h1 id="welcome"></h1>
+                </div>
+                <div class="field">
+                    <div>
+                        <label for="email">EMAIL:</label>
+                    </div>
+                    <div class="input">
+                        <h3 id="email"></h3>
+                    </div>
+                </div>
+                <div class="field">
+                    <div>
+                        <label for="fullName">FULL NAME:</label>
+                    </div>
+                    <div class="input">
+                        <h3 id="fullName"></h3>
+                    </div>
+                </div>
+                <div class="field">
+                    <div>
+                        <label for="country">COUNTRY:</label>
+                    </div>
+                    <div class="input">
+                        <h3 id="country"></h3>
+                    </div>
+                </div>
+                <div class="field">
+                    <div>
+                        <label for="birthdate">BIRTHDAY:</label>
+                    </div>
+                    <div class="input">
+                        <h3 id="birthdate"></h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const authUser = JSON.parse(localStorage.getItem("authUser"))
+        if (authUser)
+            document.getElementById('welcome').innerText = `Welcome ${authUser.fullname}`
+        document.getElementById('email').innerText = authUser.email
+        document.getElementById('fullName').innerText = authUser.fullname
+        document.getElementById('country').innerText = authUser.country
+        document.getElementById('birthdate').innerText = authUser.birthdate
+        document.getElementById('profile').innerText = authUser.fullname
+        document.getElementById('logout').onclick =()=>{
+            delete localStorage.authUser;
+        }
+    </script>
+
+</body>
+</html>

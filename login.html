@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <b>TWITTER</b>
+        </div>
+        
+        <div class="header-links">
+            <a href="#">Tweets</a>
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </header>
+
+    <form method="get" id="form" action="index.html">
+        <h3 class="error" id="error"></h3>
+        <div class="field">
+          <div>
+            <label for="email">EMAIL:</label>
+          </div>
+          <div class="input">
+            <input  type="text" name="email" id="email">
+          </div>
+        </div>
+        <div class="field">
+          <div>
+            <label for="password">PASSWORD:</label>
+          </div>
+          <div class="input">
+            <input  type="password" name="email" id="password">
+          </div>
+        </div>
+        <div class="field">
+          <div>
+            <button type="submit" class="submitButton">SIGN IN</button>
+          </div>
+        </div>
+      </form>
+      <script>
+        document.getElementById('form').onsubmit = () => {
+          const email = document.getElementById('email').value
+          const password = document.getElementById('password').value
+      
+          if (email && password) {
+           const users = JSON.parse(localStorage.getItem('user')) || [];
+            const currentUser = users.filter(user => user.email === email && user.password === password)
+            if (currentUser[0]) {
+              localStorage.authUser = JSON.stringify(currentUser[0])
+            }
+            else {
+              const error = document.getElementById('error')
+              error.innerText = "Пароль немесе email қате енгізілген!"
+              return false
+            }
+          }
+          else {
+            const error = document.getElementById('error')
+            error.innerText = "Барлық жолдарды толтырыңыз"
+            return false
+          }
+        }
+      </script>
+</body>
+</html>
